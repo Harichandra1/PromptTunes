@@ -17,12 +17,12 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
       <div
         className="fixed top-0 left-0 h-full w-5 z-40"
         onMouseEnter={() => setShowButton(true)}
-        onMouseLeave={() => setShowButton(false)}
+        onMouseLeave={() => setShowButton(true)}
       >
         {showButton && !isOpen && (
           <button
             onClick={() => setIsOpen(true)}
-            className="p-3 bg-gray-800 text-white rounded-full absolute top-5 left-2 transition-opacity"
+            className="p-3 bg-white-800 text-white rounded-full absolute top-5 left-2 transition-opacity"
           >
             <Menu className="w-6 h-6" />
           </button>
