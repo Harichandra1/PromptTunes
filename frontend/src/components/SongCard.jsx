@@ -1,4 +1,3 @@
-// SongCard.jsx - Component to display an individual song recommendation
 import React from "react";
 import { Heart, ExternalLink } from "lucide-react";
 
@@ -9,11 +8,12 @@ const SongCard = ({ song, isSelected, onSelect }) => {
     <div
       onClick={() => onSelect(song)}
       className={`
-        p-4 rounded-lg transition-all cursor-pointer
-        ${isSelected ? "bg-gray-800" : "hover:bg-gray-800/50"}
+        p-4 rounded-2xl transition-all cursor-pointer border-[6px] border-double border-black
+        shadow-2xl bg-[#f5f5dc] text-black backdrop-blur-md flex flex-col items-center
+        ${isSelected ? "bg-[#121212]" : "hover:bg-[#121212] hover:text-[#32cd32]"}
       `}
     >
-      <div className="relative group ">
+      <div className="relative group w-full overflow-hidden rounded-2xl border-[6px] border-double border-black">
         <iframe
           src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`}
           width="100%"
@@ -22,26 +22,26 @@ const SongCard = ({ song, isSelected, onSelect }) => {
           allowFullScreen
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-          className="rounded-lg"
+          className="rounded-2xl"
         />
         <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button className="p-2 bg-gray-900/80 rounded-full hover:bg-gray-900">
-            <Heart className="w-5 h-5" />
+          <button className="p-2 bg-[#444] rounded-full hover:bg-[#555]">
+            <Heart className="w-5 h-5 text-[#32cd32]" />
           </button>
           <a
             href={song.url}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="p-2 bg-gray-900/80 rounded-full hover:bg-gray-900"
+            className="p-2 bg-[#444] rounded-full hover:bg-[#555]"
           >
-            <ExternalLink className="w-5 h-5" />
+            <ExternalLink className="w-5 h-5 text-[#32cd32]" />
           </a>
         </div>
       </div>
-      <div className="mt-3">
-        <h3 className="font-semibold text-white truncate">{song.name}</h3>
-        <p className="text-gray-400 text-sm truncate">{song.artist}</p>
+      <div className="mt-3 w-full text-center">
+        <h3 className="font-semibold text-[#32cd32] truncate group-hover:text-[#32cd32]">{song.name}</h3>
+        <p className="text-black text-sm truncate group-hover:text-white">{song.artist}</p>
       </div>
     </div>
   );

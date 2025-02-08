@@ -28,22 +28,26 @@ const SearchPage = ({ setSelectedSong }) => {
     <div className={`p-6 transition-all duration-500 ${searched ? "pt-6" : "h-screen flex flex-col justify-center"}`}>
       <div className={`max-w-3xl mx-auto w-full mb-12 transition-all duration-500 ${searched ? "mt-0" : "mt-40"}`}>
         <div className="relative group w-full">
-          <input
-            type="text"
-            placeholder="Tell me the situation..."
-            value={situation}
-            onChange={(e) => setSituation(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && handleSearch()}
-            className="
-              w-full p-4 pl-14 pr-32
-              bg-gray-900 border-2 border-gray-800
-              rounded-2xl
-              text-lg
-              transition-all
-              focus:border-green-500 focus:outline-none
-              group-hover:border-gray-700
-            "
-          />
+        <input
+        type="text"
+        placeholder="Tell me the situation..."
+        value={situation}
+        onChange={(e) => setSituation(e.target.value)}
+        onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+        className="
+          w-full p-4 pl-14 pr-32
+          bg-white/30 backdrop-blur-md text-black
+          border-[6px] border-double border-gray-800
+          rounded-2xl text-lg
+          transition-all
+          inset-shadow-indigo-500
+          focus:border-black-1000 focus:outline-none
+          group-hover:border-gray-700
+          placeholder-gray-500
+          shadow-2xl
+        "
+      />
+
           <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 group-hover:text-gray-300" />
           <button
             onClick={handleSearch}
@@ -58,7 +62,7 @@ const SearchPage = ({ setSelectedSong }) => {
               text-black
             "
           >
-            {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Discover"}
+            {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Discover Music"}
           </button>
         </div>
       </div>

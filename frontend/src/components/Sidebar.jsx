@@ -29,17 +29,18 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         )}
       </div>
 
-      {/* Overlay to Prevent Overlaying Issues */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
+     {/* Overlay to Prevent Overlaying Issues */}
+    {isOpen && (
+    <div
+    className="fixed inset-0 backdrop-blur-sm bg-black/10 z-30"
+    onClick={() => setIsOpen(false)}
+    ></div>
+    )}
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-black p-6 border-r border-gray-800 transition-transform z-50 ${
+      //hereis the change
+        className={`fixed top-0 left-0 h-full w-64 p-6 border-r border-gray-800 transition-transform z-50 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -54,9 +55,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         {/* App Title */}
         <div className="flex items-center mb-8">
           <Music2 className="w-8 h-8 text-green-500 mr-2" />
-          <h1 className="text-xl font-bold">Mood Music</h1>
+           <h1 className="text-xl font-bold text-black">Mood Music</h1> 
         </div>
-
         {/* Menu Links */}
         <nav className="space-y-2">
           {menuItems.map(({ id, icon: Icon, label }) => (
@@ -68,8 +68,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
               }}
               className={`flex items-center gap-4 p-3 rounded-lg cursor-pointer transition-all ${
                 activeTab === id
-                  ? "bg-gray-800 text-white"
-                  : "text-gray-400 hover:text-white hover:bg-gray-800"
+                  ? "bg-[rgb(229,229,229)] text-black"  // Changed active background color to grey (229,229,229) and text to black
+                  : "text-gray-400 hover:text-black hover:bg-gray-200"
               }`}
             >
               <Icon className="w-6 h-6" />
