@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Search, Loader2 } from "lucide-react";
 import SongCard from "../components/SongCard";
-
+import sound1 from "../assets/sound1.wav";
 const SearchPage = ({ setSelectedSong }) => {
   const [situation, setSituation] = useState("");
   const [songs, setSongs] = useState([]);
@@ -11,13 +11,19 @@ const SearchPage = ({ setSelectedSong }) => {
 
   const handleSearch = async () => {
     if (!situation.trim()) return;
+  
+    // Play the sound
+    const audio = new Audio(sound1);
+    audio.volume = 1.0;
+    audio.play();
+  
     setLoading(true);
     try {
       const response = await axios.post("http://localhost:5001/recommend", {
         situation,
       });
       setSongs(response.data.songs);
-      setSearched(true); // Move search bar only after clicking Discover
+      setSearched(true);
     } catch (error) {
       console.error("Error fetching song recommendations", error);
     }
@@ -36,9 +42,9 @@ const SearchPage = ({ setSelectedSong }) => {
         onKeyPress={(e) => e.key === "Enter" && handleSearch()}
         className="
           w-full p-4 pl-14 pr-32
-          bg-white/30 backdrop-blur-md text-black
-          border-[6px] border-double border-gray-800
-          rounded-2xl text-lg
+          bg-white/50 backdrop-blur-md text-black
+         
+          rounded-xl text-lg
           transition-all
           inset-shadow-indigo-500
           focus:border-black-1000 focus:outline-none
@@ -48,14 +54,15 @@ const SearchPage = ({ setSelectedSong }) => {
         "
       />
 
-          <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 group-hover:text-gray-300" />
+          <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-black-400 group-hover:text-gray-300" />
           <button
             onClick={handleSearch}
             disabled={loading}
             className="
               absolute right-3 top-1/2 transform -translate-y-1/2
               px-6 py-2
-              bg-green-500 hover:bg-green-400
+              border-2 border-gray-500 border-opacity-15
+              hover:bg-gray-500
               rounded-xl
               font-semibold
               transition-colors
