@@ -52,6 +52,7 @@ app.post("/recommend", async (req, res) => {
   if (!situation) return res.status(400).json({ error: "Situation is required" });
 
   const processedQuery = extractKeywords(situation); // Extract keywords
+  console.log("Processed query:", processedQuery);
   try {
     const response = await axios.get(
       `https://api.spotify.com/v1/search?q=${encodeURIComponent(
