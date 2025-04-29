@@ -23,79 +23,107 @@ The application features a retro-styled interface with additional functionality 
 
 ⸻
 
-Tech Stack
-	•	Frontend: React.js (or Vue.js alternative)
-	•	Backend: Node.js, Express
-	•	APIs:
-	•	Spotify Web API (for music search and streaming)
-	•	Genius API (for lyrics fetching)
-	•	NLP Libraries: Natural.js (tokenizer, stopword removal, stemming)
-	•	Styling: TailwindCSS
+Tech Stack 
+- **Frontend**: React.js (or Vue.js alternative)
+
+- **Backend**: Node.js, Express
+
+- **APIs**:
+  - Spotify Web API
+  - Genius API
+
+- **NLP Libraries**: Natural.js
+
+- **Styling**: TailwindCSS
 
 ⸻
 
-Features
-	•	🎵 Search and play Spotify songs based on natural language input
-	•	🧠 Keyword extraction using NLP techniques
-	•	🎤 View lyrics through Genius API integration
-	•	📚 Save your favorite songs to a personal library
-	•	🎛️ Retro-themed, glowing UI with subtle grid backgrounds
-	•	🔒 Secure API authentication handling
+## Features
 
+- 🎵 Search and play Spotify songs based on natural language input
+- 🧠 Keyword extraction using NLP techniques
+- 🎤 View lyrics through Genius API integration
+- 📚 Save your favorite songs to a personal library
+- 🎛️ Retro-themed, glowing UI with subtle grid backgrounds
+- 🔒 Secure API authentication handling
+  
 ⸻
 
-Installation
+## Installation
 
 ### 1. Clone the repository
-
-git clone https://github.com/your-username/prompttunes.git
+```bash
+git clone https://github.com/Harichandra1/PromptTunes.git
 cd prompttunes
+```
 
-2. Install dependencies
-
-For both frontend and backend:
-
+### 2. Install dependencies
+```bash
 npm install
+```
 
-3. Run the application
-
-Start backend server:
-
+### 3. Run the application
+```bash
+# Start backend server
 node app.js
 
-Start frontend server:
-
+# Start frontend server
 npm run dev
+```
 
+## Environment Variables
 
+Create a `.env` file in your root directory with the following variables:
 
-⸻
-
-Environment Variables
-
-Create a .env file in your root directory and add:
-
+```
 SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
 GENIUS_ACCESS_TOKEN=your_genius_access_token
+```
 
+## API Usage Examples
 
+### Spotify API
+```javascript
+// Example of fetching tracks from Spotify
+async function searchTracks(query) {
+  const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track`, {
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  });
+  return await response.json();
+}
+```
 
+### Genius API
+```javascript
+// Example of fetching lyrics from Genius
+async function fetchLyrics(songId) {
+  const response = await fetch(`https://api.genius.com/songs/${songId}`, {
+    headers: {
+      'Authorization': `Bearer ${process.env.GENIUS_ACCESS_TOKEN}`
+    }
+  });
+  return await response.json();
+}
 ⸻
+```
 
-Project Structure
+## Project Structure
 
+```
 /frontend
-  ├── App.jsx
-  ├── /components
-      └── Sidebar.jsx
-  ├── /pages
-      ├── Home.jsx
-      ├── Library.jsx
-      ├── Search.jsx
+├── App.jsx
+├── /components
+│   └── Sidebar.jsx
+├── /pages
+│   ├── Home.jsx
+│   ├── Library.jsx
+│   └── Search.jsx
 /backend
-  └── app.js
-
+└── app.js
+```
 
 
 ⸻
