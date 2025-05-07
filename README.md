@@ -130,4 +130,12 @@ async function fetchLyrics(songId) {
 
 Screenshots
 
+1.![129B4549-75DD-4B60-9B08-3529819B5D49_1_201_a](https://github.com/user-attachments/assets/aa9f325c-9ffc-4a62-9432-2fda89c4f138)
+2.![E24AD798-8C3A-4617-80F6-963F997C8400_1_201_a](https://github.com/user-attachments/assets/cd147afd-76f1-47a2-96f7-716d5d8382c5)
+3.![30E96079-D4C1-4E3D-A6EE-706481E93FE7_1_201_a](https://github.com/user-attachments/assets/543e8351-fed8-42aa-a8ac-790246f3ee5e)
+
+
+
+
+
 
