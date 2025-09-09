@@ -24,7 +24,7 @@ The application features a retro-styled interface with additional functionality 
 ⸻
 
 Tech Stack 
-- **Frontend**: React.js (or Vue.js alternative)
+- **Frontend**: React.js 
 
 - **Backend**: Node.js, Express
 
